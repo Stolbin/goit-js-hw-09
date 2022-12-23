@@ -1,4 +1,4 @@
-body {
+.timer_box {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +22,7 @@ body {
     margin-right: 10px;
 }
 
-[data-start] {
+.btn_start-timer {
     width: 100px;
     height: 50px;
     padding: 10px 20px;
