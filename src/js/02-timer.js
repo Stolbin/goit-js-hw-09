@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'flatpickr/dist/flatpickr.min.css';
-// import { Notify } from 'npm i notiflix/build/notiflix-notify-aio';
+import '../css/timer.css';
 
 const refs = {
   days: document.querySelector('[data-days]'),
@@ -65,7 +66,7 @@ function onStartTimer(selectedDates) {
     objectTime = convertMs(selectedTimeInMs);
     refs.days.textContent = addLeadingZero(objectTime.days);
     refs.hours.textContent = addLeadingZero(objectTime.hours);
-    refs.selectData.textContent = addLeadingZero(objectTime.minutes);
+    refs.minutes.textContent = addLeadingZero(objectTime.minutes);
     refs.seconds.textContent = addLeadingZero(objectTime.seconds);
     selectedTimeInMs -= DELAY_INTERVAL;
   }, DELAY_INTERVAL);
@@ -73,4 +74,8 @@ function onStartTimer(selectedDates) {
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
+}
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
